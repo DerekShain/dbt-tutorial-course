@@ -1,4 +1,6 @@
 /venv
 .user.yml
+.profiles.yml
 /logs
 logs
+/lessons/~/.dbt/*.yml
