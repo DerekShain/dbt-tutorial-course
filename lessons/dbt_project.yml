@@ -31,9 +31,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   lessons:
-    # Config indicated by "+"" and applies to all files under models/example/
-    # It would still work without the "+", but it's useful to distinguish from a resource path
-    +materialized: table # Default to table materialisation
+    +materialized: table # Default all SQL models to be materialised as tables
     +persist_docs: # Writes all of our column descriptions into BigQuery!
       relation: true
       columns: true
+    # Table deletes 168 hours (7 days) after creation
+    +hours_to_expiration: 168
+
+tests:
+  lessons:
+    +severity: warn # All tests in our lesson project default to warn
+
