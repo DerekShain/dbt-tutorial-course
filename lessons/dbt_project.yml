@@ -34,6 +34,6 @@ models:
     # Config indicated by "+"" and applies to all files under models/example/
     # It would still work without the "+", but it's useful to distinguish from a resource path
     +materialized: table # Default to table materialisation
-    +persist_docs:
+    +persist_docs: # Writes all of our column descriptions into BigQuery!
       relation: true
       columns: true
