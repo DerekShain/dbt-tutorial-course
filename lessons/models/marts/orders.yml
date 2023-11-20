@@ -1,18 +1,25 @@
 version: 2
 
+groups:
+  - name: sales
+    owner:
+      email: sales@my-company.com
+
+  # Optional, this is just to illustrate
+  - name: marketing
+    owner:
+      email: marketing@my-company.com
+
 models:
   - name: orders
     description: "Table of order level information"
-    columns:
+    config:
+      group: sales
 
-    # Columns from stg_ecommerce__orders
-    # We don't test these columns, other than the primary key,
-    # as we've already tested them in the staging model. But feel free
-    # to add your own tests here!
+    access: private
+    columns:
       - name: order_id
         tests:
-          # Generic test that we define in tests/generic/test_primary_key.sql
-          # Takes arguments for model & column_name, both of which are automatically passed to it
           - unique
           - relationships:
               to: ref('stg_ecommerce__orders')
