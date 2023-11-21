@@ -3,14 +3,16 @@
 -- A comment that will be present
 
 {% set my_long_variable %}
-	SELECT 1 AS my_col
+	--SELECT 1 AS my_col
 {% endset %}
 
-{% set my_list = ['a', 'b', 'c'] %}
+{{ my_long_variable }}
+
+{% set my_list = ['1', '2', '3'] %}
 
 SELECT
 {% for item in my_list %}
 	{{ item }}{% if not loop.last %},{% endif %}
 {% endfor %}
 
-{{ my_list }}
+--{{ my_list }}

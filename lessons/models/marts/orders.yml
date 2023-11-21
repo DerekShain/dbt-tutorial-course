@@ -16,7 +16,7 @@ models:
     config:
       group: sales
 
-    access: private
+    #access: private
     columns:
       - name: order_id
         tests:
